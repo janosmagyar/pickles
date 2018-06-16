@@ -127,5 +127,9 @@ namespace PicklesDoc.Pickles
                 Log.Error("A test result file could not be found, it will be skipped: {0}", fileInfoBase.FullName);
             }
         }
+
+        void IConfiguration.ParseArguments(Arguments arguments)
+        {
+        }
     }
 }

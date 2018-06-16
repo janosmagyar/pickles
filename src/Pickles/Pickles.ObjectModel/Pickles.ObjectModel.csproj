@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arguments.cs" />
     <Compile Include="DirectoryCrawler\INode.cs" />
     <Compile Include="DataStructures\Tree.cs" />
     <Compile Include="DirectoryCrawler\FeatureNode.cs" />

@@ -63,5 +63,7 @@ namespace PicklesDoc.Pickles
         void EnableComments();
 
         void DisableComments();
+
+        void ParseArguments(Arguments arguments);
     }
 }
