@@ -78,6 +78,11 @@ namespace PicklesDoc.Pickles.CommandLine
 
             this.options.Parse(args);
 
+            configuration.ParseArguments(new Arguments()
+            {
+                ExcludeTags = this.excludeTags,
+            });
+
             if (this.versionRequested)
             {
                 this.DisplayVersion(stdout);
@@ -137,10 +142,7 @@ namespace PicklesDoc.Pickles.CommandLine
                 configuration.EnableExperimentalFeatures();
             }
 
-            if (!string.IsNullOrEmpty(this.excludeTags))
-            {
-                configuration.ExcludeTags = this.excludeTags;
-            }
+
 
             if (!string.IsNullOrEmpty(this.hideTags))
             {

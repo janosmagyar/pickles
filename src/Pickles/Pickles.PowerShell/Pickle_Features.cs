@@ -93,6 +93,11 @@ namespace PicklesDoc.Pickles.PowerShell
 
         private void ParseParameters(IConfiguration configuration, IFileSystem fileSystem, PathInfo currentFileSystemLocation)
         {
+            configuration.ParseArguments(new Arguments()
+            {
+                ExcludeTags = this.ExcludeTags,
+            });
+
             configuration.FeatureFolder = this.DetermineFeatureFolder(fileSystem, currentFileSystemLocation, this.FeatureDirectory);
             configuration.OutputFolder = this.DetermineFeatureFolder(fileSystem, currentFileSystemLocation, this.OutputDirectory);
 
@@ -128,11 +133,6 @@ namespace PicklesDoc.Pickles.PowerShell
             if (this.IncludeExperimentalFeatures.IsPresent)
             {
                 configuration.EnableExperimentalFeatures();
-            }
-
-            if (!string.IsNullOrEmpty(this.ExcludeTags))
-            {
-                configuration.ExcludeTags = this.ExcludeTags;
             }
 
             if (!string.IsNullOrEmpty(this.HideTags))

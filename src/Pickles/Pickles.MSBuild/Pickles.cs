@@ -88,6 +88,11 @@ namespace PicklesDoc.Pickles.MSBuild
 
         private void CaptureConfiguration(IConfiguration configuration, IFileSystem fileSystem)
         {
+            configuration.ParseArguments(new Arguments()
+            {
+                ExcludeTags = this.ExcludeTags,
+            });
+
             configuration.FeatureFolder = fileSystem.DirectoryInfo.FromDirectoryName(this.FeatureDirectory);
             configuration.OutputFolder = fileSystem.DirectoryInfo.FromDirectoryName(this.OutputDirectory);
             if (!string.IsNullOrEmpty(this.Language))
@@ -119,11 +124,6 @@ namespace PicklesDoc.Pickles.MSBuild
             if (!string.IsNullOrEmpty(this.DocumentationFormat))
             {
                 configuration.DocumentationFormat = (DocumentationFormat)Enum.Parse(typeof(DocumentationFormat), this.DocumentationFormat, true);
-            }
-            
-            if (!string.IsNullOrEmpty(this.ExcludeTags))
-            {
-                configuration.ExcludeTags = this.ExcludeTags;
             }
 
             if (!string.IsNullOrEmpty(this.HideTags))

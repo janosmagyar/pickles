@@ -22,5 +22,6 @@ namespace PicklesDoc.Pickles
 {
     public class Arguments
     {
+        public string ExcludeTags { get; set; }
     }
 }

@@ -510,6 +510,10 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                 var container = builder.Build();
 
                 var configuration = container.Resolve<IConfiguration>();
+                configuration.ParseArguments(new Arguments()
+                {
+                    ExcludeTags = this.ExcludeTags,
+                });
 
                 configuration.FeatureFolder = this.fileSystem.DirectoryInfo.FromDirectoryName(this.featureFolder);
 
@@ -538,7 +542,6 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
 
                 configuration.DocumentationFormat = documentationFormat;
 
-                configuration.ExcludeTags = this.ExcludeTags;
                 configuration.HideTags = this.HideTags;
 
                 if (this.includeExperimentalFeatures)

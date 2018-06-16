@@ -47,7 +47,8 @@ namespace PicklesDoc.Pickles
 
         bool ShouldIncludeExperimentalFeatures { get; }
 
-        string ExcludeTags { get; set; }
+        string ExcludeTags { get; }
+
         string HideTags { get; set; }
 
         void AddTestResultFile(FileInfoBase fileInfoBase);

@@ -489,7 +489,7 @@ namespace PicklesDoc.Pickles.CommandLine.UnitTests
         {
             var args = new[] { argumentName + argument };
 
-            var configuration = new Configuration();
+            IConfiguration configuration = new Configuration();
             var commandLineArgumentParser = new CommandLineArgumentParser(FileSystem);
             bool shouldContinue = commandLineArgumentParser.Parse(args, configuration, TextWriter.Null);
 

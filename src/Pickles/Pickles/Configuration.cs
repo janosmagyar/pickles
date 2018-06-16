@@ -112,8 +112,6 @@ namespace PicklesDoc.Pickles
             }
         }
 
-        public string ExcludeTags { get; set; }
-
         public string HideTags { get; set; }
 
         private void AddTestResultFileIfItExists(FileInfoBase fileInfoBase)
@@ -130,6 +128,14 @@ namespace PicklesDoc.Pickles
 
         void IConfiguration.ParseArguments(Arguments arguments)
         {
+            if (!string.IsNullOrEmpty(arguments.ExcludeTags))
+            {
+                this.excludeTags = arguments.ExcludeTags;
+            }
         }
+
+        private string excludeTags;
+
+        string IConfiguration.ExcludeTags => this.excludeTags;
     }
 }
