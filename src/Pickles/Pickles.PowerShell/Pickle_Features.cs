@@ -96,6 +96,7 @@ namespace PicklesDoc.Pickles.PowerShell
             configuration.ParseArguments(new Arguments()
             {
                 ExcludeTags = this.ExcludeTags,
+                HideTags = this.HideTags,
             });
 
             configuration.FeatureFolder = this.DetermineFeatureFolder(fileSystem, currentFileSystemLocation, this.FeatureDirectory);
@@ -133,11 +134,6 @@ namespace PicklesDoc.Pickles.PowerShell
             if (this.IncludeExperimentalFeatures.IsPresent)
             {
                 configuration.EnableExperimentalFeatures();
-            }
-
-            if (!string.IsNullOrEmpty(this.HideTags))
-            {
-                configuration.HideTags = this.HideTags;
             }
 
             bool shouldEnableComments;

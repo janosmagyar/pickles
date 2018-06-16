@@ -55,7 +55,7 @@ namespace PicklesDoc.Pickles.MSBuild
 
         public string ExcludeTags { get; set; }
 
-        public string HideTags { get; set; }         
+        public string HideTags { get; set; }
 
         public override bool Execute()
         {
@@ -91,6 +91,7 @@ namespace PicklesDoc.Pickles.MSBuild
             configuration.ParseArguments(new Arguments()
             {
                 ExcludeTags = this.ExcludeTags,
+                HideTags = this.HideTags,
             });
 
             configuration.FeatureFolder = fileSystem.DirectoryInfo.FromDirectoryName(this.FeatureDirectory);
@@ -124,11 +125,6 @@ namespace PicklesDoc.Pickles.MSBuild
             if (!string.IsNullOrEmpty(this.DocumentationFormat))
             {
                 configuration.DocumentationFormat = (DocumentationFormat)Enum.Parse(typeof(DocumentationFormat), this.DocumentationFormat, true);
-            }
-
-            if (!string.IsNullOrEmpty(this.HideTags))
-            {
-                configuration.HideTags = this.HideTags;
             }
 
             bool shouldEnableExperimentalFeatures;

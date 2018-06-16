@@ -513,6 +513,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                 configuration.ParseArguments(new Arguments()
                 {
                     ExcludeTags = this.ExcludeTags,
+                    HideTags = this.HideTags,
                 });
 
                 configuration.FeatureFolder = this.fileSystem.DirectoryInfo.FromDirectoryName(this.featureFolder);
@@ -541,8 +542,6 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                     : CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
 
                 configuration.DocumentationFormat = documentationFormat;
-
-                configuration.HideTags = this.HideTags;
 
                 if (this.includeExperimentalFeatures)
                 {

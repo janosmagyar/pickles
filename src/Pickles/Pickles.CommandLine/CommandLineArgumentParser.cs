@@ -81,6 +81,7 @@ namespace PicklesDoc.Pickles.CommandLine
             configuration.ParseArguments(new Arguments()
             {
                 ExcludeTags = this.excludeTags,
+                HideTags = this.hideTags,
             });
 
             if (this.versionRequested)
@@ -140,13 +141,6 @@ namespace PicklesDoc.Pickles.CommandLine
             if (this.includeExperimentalFeatures)
             {
                 configuration.EnableExperimentalFeatures();
-            }
-
-
-
-            if (!string.IsNullOrEmpty(this.hideTags))
-            {
-                configuration.HideTags = this.hideTags;
             }
 
             bool enableComments;

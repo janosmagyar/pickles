@@ -55,10 +55,11 @@ namespace PicklesDoc.Pickles.Test
                 {
                     var builder = new ContainerBuilder();
 
-                    IConfiguration configuration = new Configuration() { HideTags = "TagsToHideFeature;TagsToHideScenario" };
+                    IConfiguration configuration = new Configuration();
                     configuration.ParseArguments(new Arguments()
                     {
                         ExcludeTags = "exclude-tag",
+                        HideTags = "TagsToHideFeature;TagsToHideScenario"
                     });
 
                     builder.RegisterAssemblyTypes(typeof(Runner).Assembly);
