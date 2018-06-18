@@ -41,7 +41,7 @@ namespace PicklesDoc.Pickles
 
         IEnumerable<FileInfoBase> TestResultsFiles { get; }
 
-        string SystemUnderTestName { get; set; }
+        string SystemUnderTestName { get; }
 
         string SystemUnderTestVersion { get; set; }
 

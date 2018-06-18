@@ -24,5 +24,6 @@ namespace PicklesDoc.Pickles
     {
         public string ExcludeTags { get; set; }
         public string HideTags { get; set; }
+        public string SystemUnderTestName { get; set; }
     }
 }

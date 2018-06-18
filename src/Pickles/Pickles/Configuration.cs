@@ -134,6 +134,10 @@ namespace PicklesDoc.Pickles
             {
                 this.hideTags = arguments.HideTags;
             }
+            if (!string.IsNullOrEmpty(arguments.SystemUnderTestName))
+            {
+                this.SystemUnderTestName = arguments.SystemUnderTestName;
+            }
         }
 
         private string excludeTags;
