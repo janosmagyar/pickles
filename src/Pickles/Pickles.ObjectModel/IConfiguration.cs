@@ -43,7 +43,7 @@ namespace PicklesDoc.Pickles
 
         string SystemUnderTestName { get; }
 
-        string SystemUnderTestVersion { get; set; }
+        string SystemUnderTestVersion { get; }
 
         bool ShouldIncludeExperimentalFeatures { get; }
 

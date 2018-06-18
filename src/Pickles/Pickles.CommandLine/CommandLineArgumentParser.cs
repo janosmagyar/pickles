@@ -83,6 +83,7 @@ namespace PicklesDoc.Pickles.CommandLine
                 ExcludeTags = this.excludeTags,
                 HideTags = this.hideTags,
                 SystemUnderTestName = this.systemUnderTestName,
+                SystemUnderTestVersion = this.systemUnderTestVersion,
             });
 
             if (this.versionRequested)
@@ -116,11 +117,6 @@ namespace PicklesDoc.Pickles.CommandLine
             {
                 configuration.AddTestResultFiles(
                     PathExtensions.GetAllFilesFromPathAndFileNameWithOptionalSemicolonsAndWildCards(this.testResultsFile, this.fileSystem));
-            }
-
-            if (!string.IsNullOrEmpty(this.systemUnderTestVersion))
-            {
-                configuration.SystemUnderTestVersion = this.systemUnderTestVersion;
             }
 
             if (!string.IsNullOrEmpty(this.language))

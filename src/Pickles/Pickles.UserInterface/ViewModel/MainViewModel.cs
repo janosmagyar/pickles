@@ -515,6 +515,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                     ExcludeTags = this.ExcludeTags,
                     HideTags = this.HideTags,
                     SystemUnderTestName = this.projectName,
+                    SystemUnderTestVersion = this.projectVersion,
                 });
 
                 configuration.FeatureFolder = this.fileSystem.DirectoryInfo.FromDirectoryName(this.featureFolder);
@@ -532,7 +533,6 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                     configuration.OutputFolder = this.fileSystem.DirectoryInfo.FromDirectoryName(this.outputFolder);
                 }
 
-                configuration.SystemUnderTestVersion = this.projectVersion;
                 configuration.AddTestResultFiles(this.IncludeTests
                     ? this.testResultsFile.Split(';').Select(trf => this.fileSystem.FileInfo.FromFileName(trf)).ToArray()
                     : null);

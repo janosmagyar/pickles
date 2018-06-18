@@ -93,6 +93,7 @@ namespace PicklesDoc.Pickles.MSBuild
                 ExcludeTags = this.ExcludeTags,
                 HideTags = this.HideTags,
                 SystemUnderTestName = this.SystemUnderTestName,
+                SystemUnderTestVersion = this.SystemUnderTestVersion,
             });
 
             configuration.FeatureFolder = fileSystem.DirectoryInfo.FromDirectoryName(this.FeatureDirectory);
@@ -111,11 +112,6 @@ namespace PicklesDoc.Pickles.MSBuild
             {
                 configuration.AddTestResultFiles(
                     PathExtensions.GetAllFilesFromPathAndFileNameWithOptionalSemicolonsAndWildCards(this.ResultsFile, fileSystem));
-            }
-
-            if (!string.IsNullOrEmpty(this.SystemUnderTestVersion))
-            {
-                configuration.SystemUnderTestVersion = this.SystemUnderTestVersion;
             }
 
             if (!string.IsNullOrEmpty(this.DocumentationFormat))

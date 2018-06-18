@@ -98,6 +98,7 @@ namespace PicklesDoc.Pickles.PowerShell
                 ExcludeTags = this.ExcludeTags,
                 HideTags = this.HideTags,
                 SystemUnderTestName = this.SystemUnderTestName,
+                SystemUnderTestVersion = this.SystemUnderTestVersion,
             });
 
             configuration.FeatureFolder = this.DetermineFeatureFolder(fileSystem, currentFileSystemLocation, this.FeatureDirectory);
@@ -115,7 +116,6 @@ namespace PicklesDoc.Pickles.PowerShell
                     PathExtensions.GetAllFilesFromPathAndFileNameWithOptionalSemicolonsAndWildCards(this.TestResultsFile, fileSystem));
             }
 
-            configuration.SystemUnderTestVersion = this.SystemUnderTestVersion;
             if (!string.IsNullOrEmpty(this.DocumentationFormat))
             {
                 configuration.DocumentationFormat = (DocumentationFormat)Enum.Parse(typeof(DocumentationFormat), this.DocumentationFormat, true);
