@@ -68,14 +68,17 @@ namespace PicklesDoc.Pickles.Test.Formatters.JSON
                 outputDirectory.Create();
             }
 
-            var configuration = new Configuration
+            IConfiguration configuration = new Configuration
             {
                 OutputFolder = FileSystem.DirectoryInfo.FromDirectoryName(OutputDirectoryName),
                 DocumentationFormat = DocumentationFormat.Json,
-                TestResultsFormat = TestResultsFormat.MsTest,
                 SystemUnderTestName = "SUT Name",
                 SystemUnderTestVersion = "SUT Version"
             };
+            configuration.ParseArguments(new Arguments()
+            {
+                TestResultsFormat = "MsTest"
+            });
             configuration.AddTestResultFile(FileSystem.FileInfo.FromFileName(TestResultFilePath));
 
             ITestResults testResults = new MsTestResults(configuration, new MsTestSingleResultLoader(), new MsTestScenarioOutlineExampleMatcher());

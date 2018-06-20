@@ -33,7 +33,7 @@ namespace PicklesDoc.Pickles
 
         string Language { get; set; }
 
-        TestResultsFormat TestResultsFormat { get; set; }
+        TestResultsFormat TestResultsFormat { get; }
 
         bool HasTestResults { get; }
 

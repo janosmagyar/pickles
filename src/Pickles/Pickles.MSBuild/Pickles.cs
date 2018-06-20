@@ -94,6 +94,7 @@ namespace PicklesDoc.Pickles.MSBuild
                 HideTags = this.HideTags,
                 SystemUnderTestName = this.SystemUnderTestName,
                 SystemUnderTestVersion = this.SystemUnderTestVersion,
+                TestResultsFormat = this.ResultsFormat,
             });
 
             configuration.FeatureFolder = fileSystem.DirectoryInfo.FromDirectoryName(this.FeatureDirectory);
@@ -101,11 +102,6 @@ namespace PicklesDoc.Pickles.MSBuild
             if (!string.IsNullOrEmpty(this.Language))
             {
                 configuration.Language = this.Language;
-            }
-
-            if (!string.IsNullOrEmpty(this.ResultsFormat))
-            {
-                configuration.TestResultsFormat = (TestResultsFormat)Enum.Parse(typeof(TestResultsFormat), this.ResultsFormat, true);
             }
 
             if (!string.IsNullOrEmpty(this.ResultsFile))

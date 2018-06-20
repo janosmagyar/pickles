@@ -84,6 +84,7 @@ namespace PicklesDoc.Pickles.CommandLine
                 HideTags = this.hideTags,
                 SystemUnderTestName = this.systemUnderTestName,
                 SystemUnderTestVersion = this.systemUnderTestVersion,
+                TestResultsFormat = this.testResultsFormat,
             });
 
             if (this.versionRequested)
@@ -105,12 +106,6 @@ namespace PicklesDoc.Pickles.CommandLine
             if (!string.IsNullOrEmpty(this.outputDirectory))
             {
                 configuration.OutputFolder = this.fileSystem.DirectoryInfo.FromDirectoryName(this.outputDirectory);
-            }
-
-            if (!string.IsNullOrEmpty(this.testResultsFormat))
-            {
-                configuration.TestResultsFormat =
-                    (TestResultsFormat)Enum.Parse(typeof(TestResultsFormat), this.testResultsFormat, true);
             }
 
             if (!string.IsNullOrEmpty(this.testResultsFile))

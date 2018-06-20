@@ -18,6 +18,7 @@
 //  </copyright>
 //  --------------------------------------------------------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.IO.Abstractions;
 using System.Reflection;
@@ -51,8 +52,6 @@ namespace PicklesDoc.Pickles
         public DocumentationFormat DocumentationFormat { get; set; }
 
         public string Language { get; set; }
-
-        public TestResultsFormat TestResultsFormat { get; set; }
 
         public bool HasTestResults
         {
@@ -138,12 +137,19 @@ namespace PicklesDoc.Pickles
             {
                 this.SystemUnderTestName = arguments.SystemUnderTestName;
             }
+            if (!string.IsNullOrEmpty(arguments.TestResultsFormat))
+            {
+               this.testResultsFormat =
+                    (TestResultsFormat)Enum.Parse(typeof(TestResultsFormat), arguments.TestResultsFormat, true);
+            }
         }
 
         private string excludeTags;
         private string hideTags;
+        private TestResultsFormat testResultsFormat;
 
         string IConfiguration.ExcludeTags => this.excludeTags;
         string IConfiguration.HideTags => this.hideTags;
+        TestResultsFormat IConfiguration.TestResultsFormat => this.testResultsFormat;
     }
 }

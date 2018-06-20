@@ -96,8 +96,11 @@ namespace PicklesDoc.Pickles.TestFrameworks.UnitTests
 
         private void SetConfiguration(string example, TestResultsFormat format)
         {
-            var configuration = this.Container.Resolve<IConfiguration>();
-            configuration.TestResultsFormat = format;
+            IConfiguration configuration = this.Container.Resolve<IConfiguration>();
+            configuration.ParseArguments(new Arguments()
+            {
+                TestResultsFormat = format.ToString()
+            });
             configuration.AddTestResultFiles(new[] { this.FileSystem.FileInfo.FromFileName(example) });
         }
     }

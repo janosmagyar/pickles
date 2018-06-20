@@ -516,6 +516,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                     HideTags = this.HideTags,
                     SystemUnderTestName = this.projectName,
                     SystemUnderTestVersion = this.projectVersion,
+                    TestResultsFormat = this.selectedTestResultsFormat.ToString(),
                 });
 
                 configuration.FeatureFolder = this.fileSystem.DirectoryInfo.FromDirectoryName(this.featureFolder);
@@ -536,7 +537,6 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                 configuration.AddTestResultFiles(this.IncludeTests
                     ? this.testResultsFile.Split(';').Select(trf => this.fileSystem.FileInfo.FromFileName(trf)).ToArray()
                     : null);
-                configuration.TestResultsFormat = this.selectedTestResultsFormat;
                 configuration.Language = this.selectedLanguage != null
                     ? this.selectedLanguage.TwoLetterISOLanguageName
                     : CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;

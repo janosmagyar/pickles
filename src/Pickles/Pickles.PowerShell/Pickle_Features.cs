@@ -99,16 +99,11 @@ namespace PicklesDoc.Pickles.PowerShell
                 HideTags = this.HideTags,
                 SystemUnderTestName = this.SystemUnderTestName,
                 SystemUnderTestVersion = this.SystemUnderTestVersion,
+                TestResultsFormat = this.TestResultsFormat,
             });
 
             configuration.FeatureFolder = this.DetermineFeatureFolder(fileSystem, currentFileSystemLocation, this.FeatureDirectory);
             configuration.OutputFolder = this.DetermineFeatureFolder(fileSystem, currentFileSystemLocation, this.OutputDirectory);
-
-            if (!string.IsNullOrEmpty(this.TestResultsFormat))
-            {
-                configuration.TestResultsFormat =
-                    (TestResultsFormat)Enum.Parse(typeof(TestResultsFormat), this.TestResultsFormat, true);
-            }
 
             if (!string.IsNullOrEmpty(this.TestResultsFile))
             {
