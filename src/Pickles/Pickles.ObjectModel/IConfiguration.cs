@@ -31,7 +31,7 @@ namespace PicklesDoc.Pickles
 
         DocumentationFormat DocumentationFormat { get; set; }
 
-        string Language { get; set; }
+        string Language { get; }
 
         TestResultsFormat TestResultsFormat { get; }
 

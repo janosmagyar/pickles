@@ -108,9 +108,11 @@ Egenskap: Test egenskap
         När den körs
         Så skall jag se att det inträffat";
 
-            var configuration = this.Configuration;
-
-            configuration.Language = "sv";
+            IConfiguration configuration = this.Configuration;
+            configuration.ParseArguments(new Arguments()
+            {
+                Language = "sv",
+            });
 
             var parser = this.CreateParser(configuration);
             Feature feature = parser.Parse(new StringReader(featureText));

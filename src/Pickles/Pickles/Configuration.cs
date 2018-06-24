@@ -42,7 +42,7 @@ namespace PicklesDoc.Pickles
         public Configuration(ILanguageServicesRegistry languageServicesRegistry)
         {
             this.testResultsFiles = new List<FileInfoBase>();
-            this.Language = languageServicesRegistry.DefaultLanguage;
+            this.language = languageServicesRegistry.DefaultLanguage;
         }
 
         public DirectoryInfoBase FeatureFolder { get; set; }
@@ -50,8 +50,6 @@ namespace PicklesDoc.Pickles
         public DirectoryInfoBase OutputFolder { get; set; }
 
         public DocumentationFormat DocumentationFormat { get; set; }
-
-        public string Language { get; set; }
 
         public bool HasTestResults
         {
@@ -142,14 +140,20 @@ namespace PicklesDoc.Pickles
                this.testResultsFormat =
                     (TestResultsFormat)Enum.Parse(typeof(TestResultsFormat), arguments.TestResultsFormat, true);
             }
+            if (!string.IsNullOrEmpty(arguments.Language))
+            {
+                this.language = arguments.Language;
+            }
         }
 
         private string excludeTags;
         private string hideTags;
         private TestResultsFormat testResultsFormat;
+        private string language;
 
         string IConfiguration.ExcludeTags => this.excludeTags;
         string IConfiguration.HideTags => this.hideTags;
         TestResultsFormat IConfiguration.TestResultsFormat => this.testResultsFormat;
+        string IConfiguration.Language => this.language;
     }
 }

@@ -109,8 +109,11 @@ namespace PicklesDoc.Pickles.DocumentationBuilders.Html.UnitTests
                 DocStringArgument = null,
             };
 
-            var configuration = this.Configuration;
-            configuration.Language = "sv";
+            IConfiguration configuration = this.Configuration;
+            configuration.ParseArguments(new Arguments()
+            {
+                Language = "sv",
+            });
 
             var formatter = Container.Resolve<HtmlStepFormatter>();
             XElement actual = formatter.Format(step);

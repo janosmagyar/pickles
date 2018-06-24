@@ -95,14 +95,11 @@ namespace PicklesDoc.Pickles.MSBuild
                 SystemUnderTestName = this.SystemUnderTestName,
                 SystemUnderTestVersion = this.SystemUnderTestVersion,
                 TestResultsFormat = this.ResultsFormat,
+                Language = this.Language,
             });
 
             configuration.FeatureFolder = fileSystem.DirectoryInfo.FromDirectoryName(this.FeatureDirectory);
             configuration.OutputFolder = fileSystem.DirectoryInfo.FromDirectoryName(this.OutputDirectory);
-            if (!string.IsNullOrEmpty(this.Language))
-            {
-                configuration.Language = this.Language;
-            }
 
             if (!string.IsNullOrEmpty(this.ResultsFile))
             {

@@ -29,7 +29,7 @@ namespace PicklesDoc.Pickles.Test
         [Test]
         public void Constructor_Default_SetsLanguageToEnglish()
         {
-            var configuration = new Configuration();
+            IConfiguration configuration = new Configuration();
 
             Check.That(configuration.Language).IsEqualTo("en");
         }
@@ -37,7 +37,7 @@ namespace PicklesDoc.Pickles.Test
         [Test]
         public void Constructor_WithLanguageServicesRegistryThatDefaultsToDutch_SetsLangugageToDutch()
         {
-            var configuration = new Configuration(new DutchDefaultingLanguageServicesRegistry());
+            IConfiguration configuration = new Configuration(new DutchDefaultingLanguageServicesRegistry());
 
             Check.That(configuration.Language).IsEqualTo("nl");
         }
