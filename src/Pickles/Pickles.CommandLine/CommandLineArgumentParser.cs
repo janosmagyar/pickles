@@ -86,6 +86,7 @@ namespace PicklesDoc.Pickles.CommandLine
                 SystemUnderTestVersion = this.systemUnderTestVersion,
                 TestResultsFormat = this.testResultsFormat,
                 Language = this.language,
+                DocumentationFormat = this.documentationFormat,
             });
 
             if (this.versionRequested)
@@ -113,12 +114,6 @@ namespace PicklesDoc.Pickles.CommandLine
             {
                 configuration.AddTestResultFiles(
                     PathExtensions.GetAllFilesFromPathAndFileNameWithOptionalSemicolonsAndWildCards(this.testResultsFile, this.fileSystem));
-            }
-
-            if (!string.IsNullOrEmpty(this.documentationFormat))
-            {
-                configuration.DocumentationFormat =
-                    (DocumentationFormat)Enum.Parse(typeof(DocumentationFormat), this.documentationFormat, true);
             }
 
             if (this.includeExperimentalFeatures)

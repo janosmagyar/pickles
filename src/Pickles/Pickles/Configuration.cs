@@ -49,7 +49,7 @@ namespace PicklesDoc.Pickles
 
         public DirectoryInfoBase OutputFolder { get; set; }
 
-        public DocumentationFormat DocumentationFormat { get; set; }
+
 
         public bool HasTestResults
         {
@@ -144,16 +144,23 @@ namespace PicklesDoc.Pickles
             {
                 this.language = arguments.Language;
             }
+            if (!string.IsNullOrEmpty(arguments.DocumentationFormat))
+            {
+                this.documentationFormat =
+                    (DocumentationFormat)Enum.Parse(typeof(DocumentationFormat), arguments.DocumentationFormat, true);
+            }
         }
 
         private string excludeTags;
         private string hideTags;
         private TestResultsFormat testResultsFormat;
         private string language;
+        private DocumentationFormat documentationFormat;
 
         string IConfiguration.ExcludeTags => this.excludeTags;
         string IConfiguration.HideTags => this.hideTags;
         TestResultsFormat IConfiguration.TestResultsFormat => this.testResultsFormat;
         string IConfiguration.Language => this.language;
+        DocumentationFormat IConfiguration.DocumentationFormat => this.documentationFormat;
     }
 }

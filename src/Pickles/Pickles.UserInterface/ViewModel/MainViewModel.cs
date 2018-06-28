@@ -518,6 +518,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                     SystemUnderTestVersion = this.projectVersion,
                     TestResultsFormat = this.selectedTestResultsFormat.ToString(),
                     Language = this.selectedLanguage?.TwoLetterISOLanguageName ?? CultureInfo.CurrentUICulture.TwoLetterISOLanguageName,
+                    DocumentationFormat = documentationFormat.ToString(),
                 });
 
                 configuration.FeatureFolder = this.fileSystem.DirectoryInfo.FromDirectoryName(this.featureFolder);
@@ -539,7 +540,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                     ? this.testResultsFile.Split(';').Select(trf => this.fileSystem.FileInfo.FromFileName(trf)).ToArray()
                     : null);
 
-                configuration.DocumentationFormat = documentationFormat;
+
 
                 if (this.includeExperimentalFeatures)
                 {

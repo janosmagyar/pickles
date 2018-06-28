@@ -69,7 +69,7 @@ namespace PicklesDoc.Pickles.CommandLine.UnitTests
         {
             var args = new[] { @"-documentation-format=excel" };
 
-            var configuration = new Configuration();
+            IConfiguration configuration = new Configuration();
             var commandLineArgumentParser = new CommandLineArgumentParser(FileSystem);
             bool shouldContinue = commandLineArgumentParser.Parse(args, configuration, TextWriter.Null);
 
@@ -82,7 +82,7 @@ namespace PicklesDoc.Pickles.CommandLine.UnitTests
         {
             var args = new[] { @"-df=excel" };
 
-            var configuration = new Configuration();
+            IConfiguration configuration = new Configuration();
             var commandLineArgumentParser = new CommandLineArgumentParser(FileSystem);
             bool shouldContinue = commandLineArgumentParser.Parse(args, configuration, TextWriter.Null);
 

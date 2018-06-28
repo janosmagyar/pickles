@@ -29,7 +29,7 @@ namespace PicklesDoc.Pickles
 
         DirectoryInfoBase OutputFolder { get; set; }
 
-        DocumentationFormat DocumentationFormat { get; set; }
+        DocumentationFormat DocumentationFormat { get; }
 
         string Language { get; }
 

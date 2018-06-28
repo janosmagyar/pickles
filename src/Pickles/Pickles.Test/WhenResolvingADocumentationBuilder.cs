@@ -75,7 +75,10 @@ namespace PicklesDoc.Pickles.Test
         private void SetDocumentationFormat(DocumentationFormat documentationFormat)
         {
             var configuration = this.Configuration;
-            configuration.DocumentationFormat = documentationFormat;
+            configuration.ParseArguments(new Arguments()
+            {
+                DocumentationFormat = documentationFormat.ToString(),
+            });
         }
     }
 }

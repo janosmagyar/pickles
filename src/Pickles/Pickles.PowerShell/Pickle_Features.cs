@@ -101,6 +101,7 @@ namespace PicklesDoc.Pickles.PowerShell
                 SystemUnderTestVersion = this.SystemUnderTestVersion,
                 TestResultsFormat = this.TestResultsFormat,
                 Language = this.Language,
+                DocumentationFormat = this.DocumentationFormat,
             });
 
             configuration.FeatureFolder = this.DetermineFeatureFolder(fileSystem, currentFileSystemLocation, this.FeatureDirectory);
@@ -110,11 +111,6 @@ namespace PicklesDoc.Pickles.PowerShell
             {
                 configuration.AddTestResultFiles(
                     PathExtensions.GetAllFilesFromPathAndFileNameWithOptionalSemicolonsAndWildCards(this.TestResultsFile, fileSystem));
-            }
-
-            if (!string.IsNullOrEmpty(this.DocumentationFormat))
-            {
-                configuration.DocumentationFormat = (DocumentationFormat)Enum.Parse(typeof(DocumentationFormat), this.DocumentationFormat, true);
             }
 
             if (this.IncludeExperimentalFeatures.IsPresent)

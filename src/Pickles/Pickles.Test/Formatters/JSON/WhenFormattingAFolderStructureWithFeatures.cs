@@ -47,11 +47,14 @@ namespace PicklesDoc.Pickles.Test.Formatters.JSON
                 outputDirectory.Create();
             }
 
-            var configuration = new Configuration
+            IConfiguration configuration = new Configuration
             {
                 OutputFolder = FileSystem.DirectoryInfo.FromDirectoryName(OutputDirectory),
-                DocumentationFormat = DocumentationFormat.Json
             };
+            configuration.ParseArguments(new Arguments()
+            {
+                DocumentationFormat = DocumentationFormat.Json.ToString(),
+            });
 
             var jsonDocumentationBuilder = new JsonDocumentationBuilder(configuration, null, FileSystem, new LanguageServicesRegistry());
             jsonDocumentationBuilder.Build(features);

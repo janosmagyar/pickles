@@ -28,5 +28,6 @@ namespace PicklesDoc.Pickles
         public string SystemUnderTestVersion { get; set; }
         public string TestResultsFormat { get; set; }
         public string Language { get; set; }
+        public string DocumentationFormat { get; set; }
     }
 }
